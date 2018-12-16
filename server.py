@@ -26,9 +26,9 @@ def init():
     logging.info('height : ' + str(height)) 
     uh.brightness(0.5)
     uh.set_pixel(0,0, 255, 0, 0)
-    uh.set_pixel(0,width, 0, 255, 0)
-    uh.set_pixel(height,0, 0, 0, 255)
-    uh.set_pixel(height,width, 255, 0, 255)
+    uh.set_pixel(0,height-1, 0, 255, 0)
+    uh.set_pixel(width-1,0, 0, 0, 255)
+    uh.set_pixel(width-1,height-1, 255, 0, 255)
     uh.show()
 
 # create the application instance
