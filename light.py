@@ -33,8 +33,8 @@ def light(blink,bright,red,green,blue):
     for b in range(blink):
         clear()
         time.sleep(0.5)
-        for w in range(width):
-            for h in range(height):
+        for w in range(height):
+            for h in range(width):
                 uh.set_pixel(h, w, red, green, blue)
                 uh.show()
         time.sleep(0.5)
