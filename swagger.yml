@@ -17,10 +17,22 @@ paths:
       operationId: "light.red"
       tags:
         - "Alert.Light"
-      summary: "The set red light"
+      summary: Sets red light."
       description: "Use light device to display a red light"
       responses:
         200:
           description: "Successful : A red light is displayed."
+          schema:
+            type: "boolean"
+  /light/clear:
+    get:
+      operationId: "light.clear"
+      tags:
+        - "Alert.Light"
+      summary: "Clears all the lights."
+      description: "Swithes off all the light whatever their position."
+      responses:
+        200:
+          description: "Successful : All the lights are switched off."
           schema:
             type: "boolean"
