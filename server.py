@@ -22,11 +22,14 @@ def get_ip():
 def init():
     uh.set_layout(uh.PHAT)
     width,height=uh.get_shape()
+    logging.info('width : ' + str(width)) 
+    logging.info('height : ' + str(height)) 
     uh.brightness(0.5)
     uh.set_pixel(0,0, 255, 0, 0)
     uh.set_pixel(0,width, 0, 255, 0)
     uh.set_pixel(height,0, 0, 0, 255)
     uh.set_pixel(height,width, 255, 0, 255)
+    uh.show()
 
 # create the application instance
 app = connexion.App(__name__, specification_dir="./")
