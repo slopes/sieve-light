@@ -14,12 +14,12 @@ def critical(blink,bright):
 
 def warning(blink,bright):
     logger.info('Orange alert for '+ str(blink) +' s with brightness '+ str(bright)) 
-    light(blink,bright,55,100,0)
+    light(blink,bright,255,92,0)
     return True
 
 def info(blink,bright):
     logger.info('Green alert for '+ str(blink) +' s with brightness '+ str(bright)) 
-    light(blink,bright,60,91,89)
+    light(blink,bright,55,100,0)
     return True
 
 def clear():
@@ -33,8 +33,8 @@ def light(blink,bright,red,green,blue):
     for b in range(blink):
         clear()
         time.sleep(0.5)
-        for y in range(8):
-            for x in range(4):
-                uh.set_pixel(x, y, red, green, blue)
+        for w in range(width):
+            for h in range(height):
+                uh.set_pixel(h, w, red, green, blue)
                 uh.show()
         time.sleep(0.5)
