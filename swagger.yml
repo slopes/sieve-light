@@ -15,6 +15,21 @@ paths:
   /light/red:
     get:
       operationId: "light.red"
+      parameters:
+        - name: blink
+          description: Duration in seconds when the alert is blinking.
+          in: query
+          type: integer
+          default: 10
+          required: false
+        - name: bright
+          description: Bright intensity of the lights.
+          in: query
+          type: number
+          minimum: 0.0
+          maximum: 1.0
+          default: 0.5
+          required: false
       tags:
         - "Alert.Light"
       summary: Sets red light."
@@ -26,7 +41,7 @@ paths:
             type: "boolean"
   /light/clear:
     get:
-      operationId: "light.clear"
+      operationId: "light.clear"    
       tags:
         - "Alert.Light"
       summary: "Clears all the lights."
