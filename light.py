@@ -7,18 +7,6 @@ logger.setLevel(logging.INFO)
 uh.set_layout(uh.PHAT)
 width,height=uh.get_shape()
 
-def light(blink,bright,red,green,blue):       
-    uh.brightness(bright)
-    for x in range(blink):
-        clear()
-        time.sleep(0.5)
-        for y in range(height):
-            for x in range(width):
-                uh.set_pixe((x, y, red, green, blue)
-        uh.show()
-        time.sleep(0.5)
-    
-
 def critical(blink,bright):
     logger.info('Red alert for '+ str(blink) +' s with brightness '+ str(bright)) 
     light(blink,bright,255,0,0)
@@ -39,3 +27,14 @@ def clear():
     uh.clear()
     uh.show()
     return True
+
+def light(blink,bright,red,green,blue):       
+    uh.brightness(bright)
+    for b in range(blink):
+        clear()
+        time.sleep(0.5)
+        for y in range(8):
+            for x in range(4):
+                uh.set_pixel(x, y, red, green, blue)
+                uh.show()
+        time.sleep(0.5)
