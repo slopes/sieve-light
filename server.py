@@ -101,36 +101,40 @@ def get_ip():
         s.close()
     return IP 
 
-def display(digit):
+def display(c,digit):
+    logging.info('Display : ' + c) 
+    uh.brightness(0.5)
     uh.off()
     uh.set_pixels(digit)
     uh.show()
+    logging.info('Waiting... ') 
     time.sleep(5)
+    logging.info('... done.') 
 
 def init():
     uh.set_layout(uh.PHAT)
-    uh.brightness(0.5)
+   
     for c in get_ip() :
         if c == '0' :
-            display(ZERO) 
+            display(c,ZERO) 
         elif c == '1' :
-            display(ONE) 
+            display(c,ONE) 
         elif c == '2' :
-            display(TWO) 
+            display(c,TWO) 
         elif c == '3' :
-            display(THREE) 
+            display(c,THREE) 
         elif c == '4' :
-            display(FOUR) 
+            display(c,FOUR) 
         elif c == '5' :
-            display(FIVE) 
+            display(c,FIVE) 
         elif c == '6' :
-            display(SIX) 
+            display(c,SIX) 
         elif c == '7' :
-            display(SEVEN) 
+            display(c,SEVEN) 
         elif c == '8' :
-            display(EIGHT) 
+            display(c,EIGHT) 
         elif c == '8' :
-            display(NINE)
+            display(c,NINE)
         else :
             display(DOT) 
     
