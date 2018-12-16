@@ -133,7 +133,7 @@ def init():
             display(c,SEVEN) 
         elif c == '8' :
             display(c,EIGHT) 
-        elif c == '8' :
+        elif c == '9' :
             display(c,NINE)
         else :
             display(c,DOT) 

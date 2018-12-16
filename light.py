@@ -37,5 +37,5 @@ def light(blink,bright,red,green,blue):
             for h in range(height):
                 logging.info('No alert') 
                 uh.set_pixel(w, h, red, green, blue)
-                uh.show()
+        uh.show()
         time.sleep(0.5)
