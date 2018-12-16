@@ -7,6 +7,31 @@ import unicornhat as uh
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+empty = 0,0,0
+full= 0,0,255
+
+null = [
+    [empty, empty, empty, empty],
+    [empty, empty, empty, empty],
+    [empty, empty, empty, empty],
+    [empty, empty, empty, empty],
+    [empty, empty, empty, empty],
+    [empty, empty, empty, empty],
+    [empty, empty, empty, empty],
+    [empty, empty, empty, empty]
+]
+
+ONE = [
+    [empty, full, full, empty],
+    [empty, empty, full, empty],
+    [empty, empty, full, empty],
+    [empty, empty, full, empty],
+    [empty, empty, full, empty],
+    [empty, empty, full, empty],
+    [empty, empty, full, empty],
+    [full, full, full, full]
+]
+
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
@@ -17,18 +42,12 @@ def get_ip():
         IP = '127.0.0.1'
     finally:
         s.close()
-    return IP
+    return IP 
 
 def init():
     uh.set_layout(uh.PHAT)
-    width,height=uh.get_shape()
-    logging.info('width : ' + str(width)) 
-    logging.info('height : ' + str(height)) 
     uh.brightness(0.5)
-    uh.set_pixel(0,0, 255, 0, 0)
-    uh.set_pixel(0,height-1, 0, 255, 0)
-    uh.set_pixel(width-1,0, 0, 0, 255)
-    uh.set_pixel(width-1,height-1, 255, 0, 255)
+    uh.set_pixels(ONE)
     uh.show()
 
 # create the application instance
