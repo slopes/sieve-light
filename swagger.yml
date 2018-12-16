@@ -12,9 +12,9 @@ basePath: "/api/alert"
 
 # Paths supported by the server application
 paths:
-  /light/red:
+  /light/critical:
     get:
-      operationId: "light.red"
+      operationId: "light.critical"
       parameters:
         - name: blink
           description: Duration in seconds when the alert is blinking.
@@ -33,10 +33,64 @@ paths:
       tags:
         - "Alert.Light"
       summary: Sets red light."
-      description: "Use light device to display a red light"
+      description: "Use light device to display a critical alert."
       responses:
         200:
           description: "Successful : A red light is displayed."
+          schema:
+            type: "boolean"
+  /light/warning:
+    get:
+      operationId: "light.warning"
+      parameters:
+        - name: blink
+          description: Duration in seconds when the alert is blinking.
+          in: query
+          type: integer
+          default: 10
+          required: false
+        - name: bright
+          description: Bright intensity of the lights.
+          in: query
+          type: number
+          minimum: 0.0
+          maximum: 1.0
+          default: 0.5
+          required: false
+      tags:
+        - "Alert.Light"
+      summary: Sets orange light."
+      description: "Use light device to display a medium alert."
+      responses:
+        200:
+          description: "Successful : An orange light is displayed."
+          schema:
+            type: "boolean"
+  /light/info:
+    get:
+      operationId: "light.info"
+      parameters:
+        - name: blink
+          description: Duration in seconds when the alert is blinking.
+          in: query
+          type: integer
+          default: 10
+          required: false
+        - name: bright
+          description: Bright intensity of the lights.
+          in: query
+          type: number
+          minimum: 0.0
+          maximum: 1.0
+          default: 0.5
+          required: false
+      tags:
+        - "Alert.Light"
+      summary: Sets green light."
+      description: "Use light device to display a no alert"
+      responses:
+        200:
+          description: "Successful : A green light is displayed."
           schema:
             type: "boolean"
   /light/clear:
