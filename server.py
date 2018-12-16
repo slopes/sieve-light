@@ -32,6 +32,9 @@ ONE = [
     [full, full, full, full]
 ]
 
+def shader_one(x,y):
+    return ONE[x][y]
+
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
@@ -47,7 +50,7 @@ def get_ip():
 def init():
     uh.set_layout(uh.PHAT)
     uh.brightness(0.5)
-    uh.set_pixels(ONE)
+    uh.set_pixels(shader_one)
     uh.show()
 
 # create the application instance
@@ -55,7 +58,6 @@ app = connexion.App(__name__, specification_dir="./")
 
 # Cead the swagger.yml file to configure the endpoints
 app.add_api("swagger.yml")
-
 
 if __name__ == "__main__":
     logging.info('Server stating : ' + get_ip()) 

@@ -33,8 +33,8 @@ def light(blink,bright,red,green,blue):
         clear()
         uh.brightness(bright)
         time.sleep(0.5)
-        for w in range(8):
-            for h in range(4):
+        for w in range(width):
+            for h in range(height):
                 logging.info('No alert') 
                 uh.set_pixel(w, h, red, green, blue)
                 uh.show()
