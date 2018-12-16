@@ -14,7 +14,7 @@ def critical(blink,bright):
 
 def warning(blink,bright):
     logger.info('Orange alert for '+ str(blink) +' s with brightness '+ str(bright)) 
-    light(blink,bright,255,92,0)
+    light(blink,bright,255,129,0)
     return True
 
 def info(blink,bright):
@@ -28,13 +28,14 @@ def clear():
     uh.show()
     return True
 
-def light(blink,bright,red,green,blue):       
-    uh.brightness(bright)
+def light(blink,bright,red,green,blue):
     for b in range(blink):
         clear()
+        uh.brightness(bright)
         time.sleep(0.5)
-        for w in range(height):
-            for h in range(width):
-                uh.set_pixel(h, w, red, green, blue)
+        for w in range(8):
+            for h in range(4):
+                logging.info('No alert') 
+                uh.set_pixel(w, h, red, green, blue)
                 uh.show()
         time.sleep(0.5)
