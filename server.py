@@ -136,7 +136,7 @@ def init():
         elif c == '8' :
             display(c,NINE)
         else :
-            display(DOT) 
+            display(c,DOT) 
     
 # create the application instance
 app = connexion.App(__name__, specification_dir="./")
